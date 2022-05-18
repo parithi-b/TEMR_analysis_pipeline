@@ -15,7 +15,6 @@ There are three major steps involved in identifying TEMRs from SV calls.
     <li>parameters used with short-read SV calls:split-reads(SR), paired-read(PR), read-depth(RD)</li>
     <li>parameters used with long-read SV calls:read-support(RS), read-depth</li>    
     <li>read-depth are calcualted using duphold DHBFC & DHFFC (check https://github.com/brentp/duphold)</li>
-
   </ol>
   <li>Merge SVs from multiple individuals</li>
   <ol style="list-style-type: lower-alpha">
@@ -34,4 +33,13 @@ There are three major steps involved in identifying TEMRs from SV calls.
       <li>short-read: [CHR, POS, END, SVTYPE, SAMPLEID, CALLER, SR, PR, DHBFC and DHFFC]</li>
       <li>long-read: [CHR, POS, END, SVTYPE, SAMPLEID, CALLER, RS, DHBFC and DHFFC]</li>
     </ul>
-</ol>
+</ol><br>
+### STEP 2
+<ol>
+</ol><br>
+### STEP 3
+<ol>
+</ol><br>
+### STEP 4
+<ol>
+</ol><br>
