@@ -21,4 +21,4 @@ There are three major steps involved in identifying TEMRs from SV calls.
   <li>Identify SVs mediated by TEs</li>
 </ol>
   
-  ## STEP1
+  #### STEP1
