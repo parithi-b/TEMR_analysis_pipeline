@@ -38,12 +38,13 @@ There are three major steps involved in identifying TEMRs from SV calls.
     </ul>
 </ol>
 ###### filtering is applied to remove SVs overlapping simple repeats (50% overlap) and SVs near gaps and centromeres (<500bp)<br>
-<pre><code>
+<p>
   Example 
-  input: python step1_temr_sv_vcf_to_tsv.py ./vcf_files/HG00733_manta_duphold.vcf HG00733 filter short-read manta
+  input: 
+  <code>python step1_temr_sv_vcf_to_tsv.py ./vcf_files/HG00733_manta_duphold.vcf HG00733 filter short-read manta</code>
   output(single line):
   chr1	1226336	1226400	DEL	HG00733	manta	0	23	0.861111	0.704545
-</code></pre>
+</p>
   
 ### STEP 2
 <ol>
