@@ -11,7 +11,7 @@ There are three major steps involved in identifying TEMRs from SV calls.
   <li>Merge SVs from multiple callers</li>
   <ol style="list-style-type: lower-alpha">
     <li>deletions, duplications, and inversions only</li>
-    <li>reciprocal overlap (80% <50kbp and 90% for &ge;50kbp)</li>
+    <li>reciprocal overlap using <a href="[https://github.com/brentp/duphold](https://bedtools.readthedocs.io/en/latest/)">bedtools</a> (80% <50kbp and 90% for &ge;50kbp)</li>
     <li>parameters used with short-read SV calls:split-reads(SR), paired-read(PR), read-depth(RD)</li>
     <li>parameters used with long-read SV calls:read-support(RS), read-depth</li>    
     <li>read-depth are calcualted using duphold DHBFC & DHFFC (check <a href="https://github.com/brentp/duphold">duphold</a> for additional information)</li>
