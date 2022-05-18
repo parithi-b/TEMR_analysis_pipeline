@@ -65,7 +65,8 @@ chr1	9226573	9228034	DEL	NA19240	manta	36	22	0.40625	0.382353
 ```
 Example 
 input:
-python step2_temr_merge_sv_multiple_callers.py vcf_files/NA19240_manta_duphold.vcf vcf_files/NA19240_delly_duphold.vcf vcf_files/NA19240_lumpy_duphold.vcf NA19240 10 5 True
+python step2_temr_merge_sv_multiple_callers.py vcf_files/NA19240_manta_duphold.vcf
+vcf_files/NA19240_delly_duphold.vcf vcf_files/NA19240_lumpy_duphold.vcf NA19240 10 5 True
 
 If an SV fails to reach the required support it is filtered out before merging
 10 -> minimum number of paired-read support needed
