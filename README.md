@@ -60,9 +60,11 @@ python step1_temr_sv_vcf_to_tsv.py vcf_files/HG00733_manta_duphold.vcf HG00733 f
 output: 
 filename: vcf_files/NA19240_manta_duphold_sv_filtered.tsv
 (sample SV from the output file)
+<short-read pipeline>
 chr10	26710086	26713224	DEL	NA19240	manta	127	55	0	0
 chr10	26710086	26713225	DEL	NA19240	delly	126	10	0	0
 chr10	26710131	26713193	DEL	NA19240	lumpy	125	0	0	0
+<long-read pipeline>
 chr10	26710086	26713224	DEL	NA19240	pbsv	19	0	0
 chr10	26710086	26713224	DEL	NA19240	svim	24	0	0
 chr10	26710161	26713284	DEL	NA19240	sniffles	29	0	0
@@ -100,7 +102,9 @@ few example combination of parameters for filtering
 output: 
 filename: vcf_files/Ensemble/NA19240/NA19240_10_5_RD_merged_sorted_under50k.bed
 (sample SV from the output file)
+<short-read pipeline>
 chr10	26710086	26713224	DEL	NA19240	manta;delly;lumpy
+<long-read pipeline>
 chr10	26710086	26713224	DEL	NA19240	pbsv;sniffles;svim
 ```
 
@@ -115,6 +119,9 @@ chr10	26710086	26713224	DEL	NA19240	pbsv;sniffles;svim
 ```
 Example
 output:
+<short-read pipeline>
+chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240
+<long-read pipeline>
 chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240
 ```
   
