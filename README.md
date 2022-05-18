@@ -28,16 +28,21 @@ There are three major steps involved in identifying TEMRs from SV calls.
 ###### please use the full path of the files and have all the required scripts & vcfs in a single folder for ease of use. Python and bedtools were run using conda environment. 
 
 ### STEP 1
-<code><ol type="a">
+<ol type="a">
   <li><b>script</b>: step1_temr_sv_vcf_to_tsv.py</li>
   <li><b>input</b>: vcf_file, sample ID , filter/nofilter, short-read/long-read and tool name [manta/delly/lumpy/pbsv/svim/sniffle]</li>
   <li><b>output</b>: tsv files containing SVs calls in the following format</li>
     <ul style="list-style-type: lower-alpha">
-      <li>short-read : [CHR, POS, END, SVTYPE, SAMPLEID, CALLER, SR, PR, DHBFC and DHFFC]</li>
+      <li>short-read : [CHR, POS, END, SVTYPE, SAMPLEID, CALLER, PR, SR, DHBFC and DHFFC]</li>
       <li>long-read  : [CHR, POS, END, SVTYPE, SAMPLEID, CALLER, RS, DHBFC and DHFFC]</li>
     </ul>
 </ol>
 ###### filtering is applied to remove SVs overlapping simple repeats (50% overlap) and SVs near gaps and centromeres (<500bp)<br>
+<code>
+  Example 
+  input: python step1_temr_sv_vcf_to_tsv.py ./vcf_files/HG00733_manta_duphold.vcf HG00733 filter short-read manta
+  output(single line):
+  chr1	1226336	1226400	DEL	HG00733	manta	0	23	0.861111	0.704545
 </code>
   
 ### STEP 2
