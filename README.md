@@ -34,9 +34,11 @@ There are three major steps involved in identifying TEMRs from SV calls.
       <li>long-read: [CHR, POS, END, SVTYPE, SAMPLEID, CALLER, RS, DHBFC and DHFFC]</li>
     </ul>
 </ol><br>
+  
 ### STEP 2
 <ol>
 </ol><br>
+  
 ### STEP 3
 <ol>
 </ol><br>
