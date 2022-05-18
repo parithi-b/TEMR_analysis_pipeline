@@ -18,8 +18,11 @@ There are three major steps involved in identifying TEMRs from SV calls.
   </ol>
   <li>Merge SVs from multiple individuals</li>
   <ol style="list-style-type: lower-alpha">
-    <li>reciprocal overlap (80% <50kbp and 90% for &ge;50kbp)</li>
+    <li>reciprocal overlap using <a href="https://bedtools.readthedocs.io/en/latest/">bedtools</a> (80% <50kbp and 90% for &ge;50kbp)</li>  </ol>    
   <li>Identify SVs mediated by TEs</li>
+  <ol style="list-style-type: lower-alpha">
+    <li>RepeatMasker from UCSC table browser</li>
+  </ol>
 </ol>
 
 ###### please use the full path of the files and have all the required scripts & vcfs in a single folder for ease of use. Python and bedtools were run using conda environment. 
