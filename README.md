@@ -18,7 +18,8 @@ There are five major steps involved in identifying TEMRs from SV calls.
   <li>Filter and Merge SVs from multiple callers </li>
   <ol style="list-style-type: lower-alpha">
     <li>reciprocal overlap (80%) using <a href="https://bedtools.readthedocs.io/en/latest/">bedtools</a> </li>   
-      
+  </ol> 
+  
   <li>Merge SVs from multiple individuals</li>
   <ol style="list-style-type: lower-alpha">
     <li>reciprocal overlap (80%) using <a href="https://bedtools.readthedocs.io/en/latest/">bedtools</a> </li>  </ol>    
