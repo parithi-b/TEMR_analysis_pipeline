@@ -24,7 +24,7 @@ There are three major steps involved in identifying TEMRs from SV calls.
 </ol>
 
 ###### please use the full path of the files and please all the required scripts & vcfs in a single folder for ease of use.
-  
+  <br>
 #### STEP 1
 <ol type="a">
   <li>script : step1_temr_vcf_to_be.py
