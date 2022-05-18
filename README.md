@@ -9,7 +9,7 @@ There are three major steps involved in identifying TEMRs from SV calls.
   <li>Extract SVs from each caller/algorithm/tool and organize them in tsv format</li>
   <li>Merge calls from multiple callers</li>
   <ol style="list-style-type: lower-alpha">
-    <li>SV types currently considered: deletions, duplications, and inversion</l1>
+    <li>SV types currently considered: deletions, duplications, and inversion</li>
     <l1>SV type future consideration: insertion</li>
   </ol>
   <li>Merge calls from multiple individuals</li>
