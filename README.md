@@ -38,6 +38,7 @@ There are three major steps involved in identifying TEMRs from SV calls.
     </ul>
 </ol>
 ###### filtering is applied to remove SVs overlapping simple repeats (50% overlap) and SVs near gaps and centromeres (<500bp)<br>
+
 ```
 Example 
 
