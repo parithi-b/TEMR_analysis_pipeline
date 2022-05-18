@@ -60,8 +60,10 @@ python step1_temr_sv_vcf_to_tsv.py vcf_files/HG00733_manta_duphold.vcf HG00733 f
 output: 
 filename: vcf_files/NA19240_manta_duphold_sv_filtered.tsv
 (sample SV from the output file)
-<short-read pipeline>
 chr10	26710086	26713224	DEL	NA19240	manta	127	55	0	0
+
+Same SV identified by multiple callers
+<short-read pipeline>
 chr10	26710086	26713225	DEL	NA19240	delly	126	10	0	0
 chr10	26710131	26713193	DEL	NA19240	lumpy	125	0	0	0
 <long-read pipeline>
@@ -74,21 +76,21 @@ chr10	26710161	26713284	DEL	NA19240	sniffles	29	0	0
 
 ###### In this step we merge SVs that passed the filters, using bedtools. The default value is set to 80% RO (used in this study), but can be changed if needed. 
 
-###### Additionally, SVs from multiple callers were merged using a Rank based method [1. manta, 2.delly, 3. lumpy  -> was used in this study]. The SV call from a highest ranked caller is retained while the rest are excluded. For example, if an SV is called by manta, delly and lumpy, during the merging process manta call is retained while delly and lumpy calls are removed. [More information can be found in the manuscript]
+###### Additionally, SVs from multiple callers (at least 2 caller support) were merged using a Rank based method [1. manta, 2.delly, 3. lumpy  -> was used in this study]. The SV call from a highest ranked caller is retained while the rest are excluded. For example, if an SV is called by manta, delly and lumpy, during the merging process manta call is retained while delly and lumpy calls are removed. [More information can be found in the manuscript]
 
 <ol>
   <li><b>script</b>: step2_temr_filter_merge_sv_multiple_callers.py</li>
-  <li><b>input</b>: three tsv files, corresponding caller names(in order on the files mentioned), parameters (PR,SR,RD or RS,RD) </li>
+  <li><b>input</b>: three tsv files, corresponding caller names(in order on the files mentioned), parameters (PR,SR,RD or RS,RD), and output folder</li>
   <li><b>output</b>: tsv file containing merged SV calls </li>
       <ul style="list-style-type: lower-alpha">
-      <li>short-read : [CHR, POS, END, SVTYPE, SAMPLEID, CALLERS]</li>
+      <li>[CHR, POS, END, SVTYPE, SAMPLEID, CALLERS]</li>
     </ul>
 </ol><br>
   
 ```
 Example 
 input:
-python step2_temr_merge_sv_multiple_callers.py vcf_files/NA19240_manta_duphold.vcf vcf_files/NA19240_delly_duphold.vcf vcf_files/NA19240_lumpy_duphold.vcf NA19240 10 5 True
+python step2_temr_merge_sv_multiple_callers.py vcf_files/NA19240_manta_duphold.vcf vcf_files/NA19240_delly_duphold.vcf vcf_files/NA19240_lumpy_duphold.vcf NA19240 10 5 True vcf_files/short_read/Ensemble/
 
 If an SV fails to reach the required support it is filtered out before merging
 10 -> minimum number of paired-read support needed
@@ -100,11 +102,11 @@ few example combination of parameters for filtering
 [0 0 True] --> only RD filter
 [0 0 False] --> default (no filter)
 output: 
-filename: vcf_files/Ensemble/NA19240/NA19240_10_5_RD_merged_sorted_under50k.bed
+filename: vcf_files/short_read/Ensemble/NA19240/NA19240_10_5_RD_merged_sorted_under50k.bed
 (sample SV from the output file)
-<short-read pipeline>
 chr10	26710086	26713224	DEL	NA19240	manta;delly;lumpy
-<long-read pipeline>
+
+Same SV in <long-read pipeline>
 chr10	26710086	26713224	DEL	NA19240	pbsv;sniffles;svim
 ```
 
@@ -112,16 +114,26 @@ chr10	26710086	26713224	DEL	NA19240	pbsv;sniffles;svim
 ###### In this step we merge SV calls from 3 individuals
 <ol>
   <li><b>script</b>: step3_temr_merge_individuals.py</li>
-  <li><b>input</b>: </li>
-  <li><b>output</b>: </li>
+  <li><b>input</b>: merged SV callset (multicaller merge) from the three individuals, and output folder </li>
+  <li><b>output</b>: tsv file containing merged SV calls </li>
+      <ul style="list-style-type: lower-alpha">
+      <li>[CHR, POS, END, SVTYPE, INDIVIDUALS]</li>
 </ol><br>
 
 ```
 Example
+input: 
+python step3_temr_merge_individuals.py vcf_files/short_read/Ensemble/HG00514/HG00514_10_5_RD_merged_sorted_under50k.bed vcf_files/short_read/Ensemble/HG00733/HG00733_10_5_RD_merged_sorted_under50k.bed vcf_files/short_read/Ensemble/NA19240/NA19240_10_5_RD_merged_sorted_under50k.bed
+vcf_files/short_read/
+
 output:
-<short-read pipeline>
+filename: vcf_files/short_read/All_samples_merged.tsv
+(sample SV from the output file)
 chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240
-<long-read pipeline>
+HG00514: --> lead sample containing this SV
+HG00514;HG00733;NA19240 --> all samples contianing this SV
+
+Same SV in <long-read pipeline>
 chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240
 ```
   
@@ -129,16 +141,20 @@ chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240
 ###### In this step we merge SV calls from both short-read ensemble pipeline and long-read ensemble pipeline. Ensemble pipeline --> multiple caler and multiple individual merge 
 
 <ol>
-  <li><b>script</b>: .py</li>
-  <li><b>input</b>: </li>
-  <li><b>output</b>: </li>
+  <li><b>script</b>: step3_temr_merge_technology.py</li>
+ <li><b>input</b>: Ensemble SV callset from short-read pipleline and long-read pipeline, and output folder </li>
+  <li><b>output</b>: tsv file containing merged SV calls </li>
+      <ul style="list-style-type: lower-alpha">
+      <li>[CHR, POS, END, SVTYPE, INDIVIDUALS, SHARED]</li>
 </ol><br>
 
 ```
 Example
 input:
 output:
+filename: vcf_files/All_samples_short_long_merged.tsv
 chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240 shared
+shared -> identified by both long-read and short-read callers
 ```
 
 ### STEP 5: Identify TEMRs
@@ -154,5 +170,5 @@ chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240 shared
 Example
 input:
 output:
-chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240	shared	chr10;26709870;26710166;AluSx3;SINE;+;Alu	chr10;26713011;26713314;AluSc8;SINE;+;Alu	TEM_SAME;Alu
+chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240	shared	chr10;26709870;26710166;AluSx3;SINE;+;Alu	chr10;26713011;26713314;AluSc8;SINE;+;Alu	TEMR_SAME;Alu
 ```
