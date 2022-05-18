@@ -28,7 +28,7 @@ There are three major steps involved in identifying TEMRs from SV calls.
 <ol type="a">
   <li>script: step1_temr_vcf_to_tsv.py</li>
   <li>input: vcf_file, sample ID , filter/nofilter, short-read/long-read and tool name [manta/delly/lumpy/pbsv/svim/sniffle]</li>
-  <li>output: tsv files containing SVs calls in the following format</li>
+  <li><b>output</b>: tsv files containing SVs calls in the following format</li>
     <ul style="list-style-type: lower-alpha">
       <li>short-read: [CHR, POS, END, SVTYPE, SAMPLEID, CALLER, SR, PR, DHBFC and DHFFC]</li>
       <li>long-read: [CHR, POS, END, SVTYPE, SAMPLEID, CALLER, RS, DHBFC and DHFFC]</li>
