@@ -4,7 +4,7 @@ This repository includes scripts to integrate short-read (Illumina) and long-rea
 
 Transposable element-mediated rearrangements (TEMRs) are a category of structural variants (&ge;50bp) mediated by transposons.
 
-There are four major steps involved in identifying TEMRs from SV calls.
+There are five major steps involved in identifying TEMRs from SV calls.
 
 <ol>
   <li>Extract SVs from each caller/algorithm/tool and organize them in tsv format</li>
@@ -14,12 +14,19 @@ There are four major steps involved in identifying TEMRs from SV calls.
     <li>additional information for long-read SV calls: read-support(RS), read-depth</li>    
     <li>read-depth parameters (DHBFC & DHFFC) were calculated using duphold  (check <a href="https://github.com/brentp/duphold">duphold</a> for additional information)</li>
   </ol>
-  <li>Merge SVs from multiple callers</li>
+  
+  <li>Filter and Merge SVs from multiple callers </li>
   <ol style="list-style-type: lower-alpha">
-    <li>reciprocal overlap using <a href="https://bedtools.readthedocs.io/en/latest/">bedtools</a> (80% <50kbp and 90% for &ge;50kbp)</li>   
+    <li>reciprocal overlap (80%) using <a href="https://bedtools.readthedocs.io/en/latest/">bedtools</a> </li>   
+      
   <li>Merge SVs from multiple individuals</li>
   <ol style="list-style-type: lower-alpha">
-    <li>reciprocal overlap using <a href="https://bedtools.readthedocs.io/en/latest/">bedtools</a> (80% <50kbp and 90% for &ge;50kbp)</li>  </ol>    
+    <li>reciprocal overlap (80%) using <a href="https://bedtools.readthedocs.io/en/latest/">bedtools</a> </li>  </ol>    
+    
+  <li>Merge SVs from long-read ensemble and short-read ensemble</li>
+  <ol style="list-style-type: lower-alpha">
+    <li>reciprocal overlap (80%) using <a href="https://bedtools.readthedocs.io/en/latest/">bedtools</a> </li>  </ol> 
+    
   <li>Identify SVs mediated by TEs</li>
   <ol style="list-style-type: lower-alpha">
     <li>RepeatMasker from UCSC table browser</li>
@@ -54,9 +61,9 @@ chr1	9226573	9228034	DEL	NA19240	manta	36	22	0.40625	0.382353
   
 ### STEP 2
 <ol>
-  <li><b>script</b>: step2_temr_merge_sv_multiple_callers.py</li>
+  <li><b>script</b>: step2_temr_filter_merge_sv_multiple_callers.py</li>
   <li><b>input</b>: three tsv files, corresponding caller names(in order on the files mentioned), parameters (PR,SR,RD or RS,RD) </li>
-  <li><b>output</b>: </li> tsv file containing merged SV calls
+  <li><b>output</b>: tsv file containing merged SV calls </li>
       <ul style="list-style-type: lower-alpha">
       <li>short-read : [CHR, POS, END, SVTYPE, SAMPLEID, CALLERS]</li>
     </ul>
@@ -93,6 +100,13 @@ chr1	9226573	9228034	DEL	NA19240	manta;delly;lumpy
   <li><b>output</b>: </li>
 </ol><br>
   
+### STEP 4
+<ol>
+  <li><b>script</b>: .py</li>
+  <li><b>input</b>: </li>
+  <li><b>output</b>: </li>
+</ol><br>
+
 ### STEP 4
 <ol>
   <li><b>script</b>: .py</li>
