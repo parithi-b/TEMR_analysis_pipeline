@@ -82,7 +82,9 @@ filename: vcf_files/Ensemble/NA19240/NA19240_10_5_RD_merged_sorted_under50k.bed
 chr1	9226573	9228034	DEL	NA19240	manta;delly;lumpy
 ```
 
-###### We merge SVs that passed the filtering step using bedtools. The default value is set to 80% RO (used in this study), but can be changed if needed. Additionally, SVs from multiple callers are merged using a Rank based method [1. manta, 2.delly, 3. lumpy  -> was used in this study]. The SV from a highest ranked caller is retained while the rest are excluded. For example, if an SV is called by manta, delly and lumpy, during the merging process manta call is retained while delly and lumpy calls are removed. [More information can be found in the manuscript]
+###### We merge SVs that passed the filtering step using bedtools. The default value is set to 80% RO (used in this study), but can be changed if needed. 
+
+###### Additionally, SVs from multiple callers are merged using a Rank based method [1. manta, 2.delly, 3. lumpy  -> was used in this study]. The SV call from a highest ranked caller is retained while the rest are excluded. For example, if an SV is called by manta, delly and lumpy, during the merging process manta call is retained while delly and lumpy calls are removed. [More information can be found in the manuscript]
 
 ### STEP 3
 <ol>
