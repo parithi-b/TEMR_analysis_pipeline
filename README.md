@@ -20,3 +20,5 @@ There are three major steps involved in identifying TEMRs from SV calls.
     <li>reciprocal overlap (80% <50kbp and 90% for &ge;50kbp)</li>
   <li>Identify SVs mediated by TEs</li>
 </ol>
+  
+  ## STEP1
