@@ -62,7 +62,7 @@ filename: vcf_files/NA19240_manta_duphold_sv_filtered.tsv
 (sample SV from the output file)
 chr10	26710086	26713224	DEL	NA19240	manta	127	55	0	0
 
-Same SV identified by multiple callers
+Same SV identified by other callers
 <short-read pipeline>
 chr10	26710086	26713225	DEL	NA19240	delly	126	10	0	0
 chr10	26710131	26713193	DEL	NA19240	lumpy	125	0	0	0
@@ -150,7 +150,7 @@ chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240
 
 ```
 Example
-input:
+input: python step3_temr_merge_technology.py vcf_files/short_read/All_samples_merged.tsv vcf_files/long_read/All_samples_merged.tsv vcf_files
 output:
 filename: vcf_files/All_samples_short_long_merged.tsv
 chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240 shared
@@ -158,17 +158,21 @@ shared -> identified by both long-read and short-read callers
 ```
 
 ### STEP 5: Identify TEMRs
-###### In this step we identify SVs with breakpoints present within two distinct TEs.
+###### In this step we identify SVs with breakpoints present within two distinct TEs. There is an option to assign a window size while searching for TE, if breakpoint accuracy was a concern.
 
 <ol>
-  <li><b>script</b>: .py</li>
-  <li><b>input</b>: </li>
-  <li><b>output</b>: </li>
+  <li><b>script</b>: step5_temr_identify_te_at_junction.py</li>
+  <li><b>input</b>: Final merged file, repeatMasker file</li>
+  <li><b>output</b>: tsv file containing TEs present at the breakpoint junction of SV calls </li>
+      <ul style="list-style-type: lower-alpha">
+      <li>[CHR, POS, END, SVTYPE, INDIVIDUALS, SHARED, 3_TE, 5_TE, TEMR_FLAG]</li>
 </ol><br>
 
 ```
 Example
 input:
+  python vcf_files/All_samples_short_long_merged.tsv UCSC_track/hg38_repeatMasker.tsv
 output:
+  filename: vcf_files All_samples_short_long_merged_TEMR.stv
 chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240	shared	chr10;26709870;26710166;AluSx3;SINE;+;Alu	chr10;26713011;26713314;AluSc8;SINE;+;Alu	TEMR_SAME;Alu
 ```
