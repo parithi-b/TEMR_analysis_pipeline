@@ -7,7 +7,7 @@ Transposable element-mediated rearrangements (TEMRs) are a category of structura
 There are five major steps involved in identifying TEMRs from SV calls.
 
 <ol>
-  <li>Extract SVs from each caller/algorithm/tool and organize them in tsv format</li>
+  <li>Extract SVs data from each caller/algorithm/tool and organize them in tsv format</li>
    <ol style="list-style-type: lower-alpha">
     <li>deletions, duplications, and inversions only</li>
     <li>additional information for short-read SV calls:  paired-read(PR), split-reads(SR), read-depth(RD)</li>
@@ -38,7 +38,10 @@ There are five major steps involved in identifying TEMRs from SV calls.
 
 ---
 
-### STEP 1
+### STEP 1: Extract SV data 
+
+###### In this step we filter SVs overlapping simple repeats (50% overlap) and SVs near gaps and centromeres (<500bp).
+
 <ol type="a">
   <li><b>script</b>: step1_temr_sv_vcf_to_tsv.py</li>
   <li><b>input</b>: vcf_file, sample ID , filter/nofilter, short-read/long-read and tool name [manta/delly/lumpy/pbsv/svim/sniffle]</li>
@@ -49,8 +52,6 @@ There are five major steps involved in identifying TEMRs from SV calls.
     </ul>
 </ol>
 
-###### filtering is applied to remove SVs overlapping simple repeats (50% overlap) and SVs near gaps and centromeres (<500bp).
-
 ```
 Example 
 input:
@@ -59,10 +60,20 @@ python step1_temr_sv_vcf_to_tsv.py vcf_files/HG00733_manta_duphold.vcf HG00733 f
 output: 
 filename: vcf_files/NA19240_manta_duphold_sv_filtered.tsv
 (sample SV from the output file)
-chr1	9226573	9228034	DEL	NA19240	manta	36	22	0.40625	0.382353
+chr10	26710086	26713224	DEL	NA19240	manta	127	55	0	0
+chr10	26710086	26713225	DEL	NA19240	delly	126	10	0	0
+chr10	26710131	26713193	DEL	NA19240	lumpy	125	0	0	0
+chr10	26710086	26713224	DEL	NA19240	pbsv	19	0	0
+chr10	26710086	26713224	DEL	NA19240	svim	24	0	0
+chr10	26710161	26713284	DEL	NA19240	sniffles	29	0	0
 ```
   
-### STEP 2
+### STEP 2: Filter and Merge SVs from multiple callers
+
+###### In this step we merge SVs that passed the filters, using bedtools. The default value is set to 80% RO (used in this study), but can be changed if needed. 
+
+###### Additionally, SVs from multiple callers were merged using a Rank based method [1. manta, 2.delly, 3. lumpy  -> was used in this study]. The SV call from a highest ranked caller is retained while the rest are excluded. For example, if an SV is called by manta, delly and lumpy, during the merging process manta call is retained while delly and lumpy calls are removed. [More information can be found in the manuscript]
+
 <ol>
   <li><b>script</b>: step2_temr_filter_merge_sv_multiple_callers.py</li>
   <li><b>input</b>: three tsv files, corresponding caller names(in order on the files mentioned), parameters (PR,SR,RD or RS,RD) </li>
@@ -89,30 +100,52 @@ few example combination of parameters for filtering
 output: 
 filename: vcf_files/Ensemble/NA19240/NA19240_10_5_RD_merged_sorted_under50k.bed
 (sample SV from the output file)
-chr1	9226573	9228034	DEL	NA19240	manta;delly;lumpy
+chr10	26710086	26713224	DEL	NA19240	manta;delly;lumpy
+chr10	26710086	26713224	DEL	NA19240	pbsv;sniffles;svim
 ```
 
-###### We merge SVs that passed the filtering step using bedtools. The default value is set to 80% RO (used in this study), but can be changed if needed. 
-
-###### Additionally, SVs from multiple callers are merged using a Rank based method [1. manta, 2.delly, 3. lumpy  -> was used in this study]. The SV call from a highest ranked caller is retained while the rest are excluded. For example, if an SV is called by manta, delly and lumpy, during the merging process manta call is retained while delly and lumpy calls are removed. [More information can be found in the manuscript]
-
-### STEP 3
+### STEP 3: Merge SVs from multiple individuals
+###### In this step we merge SV calls from 3 individuals
 <ol>
-  <li><b>script</b>: .py</li>
+  <li><b>script</b>: step3_temr_merge_individuals.py</li>
   <li><b>input</b>: </li>
   <li><b>output</b>: </li>
 </ol><br>
+
+```
+Example
+output:
+chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240
+```
   
-### STEP 4
+### STEP 4: Merge SVs from multiple technology 
+###### In this step we merge SV calls from both short-read ensemble pipeline and long-read ensemble pipeline. Ensemble pipeline --> multiple caler and multiple individual merge 
+
 <ol>
   <li><b>script</b>: .py</li>
   <li><b>input</b>: </li>
   <li><b>output</b>: </li>
 </ol><br>
 
-### STEP 4
+```
+Example
+input:
+output:
+chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240 shared
+```
+
+### STEP 5: Identify TEMRs
+###### In this step we identify SVs with breakpoints present within two distinct TEs.
+
 <ol>
   <li><b>script</b>: .py</li>
   <li><b>input</b>: </li>
   <li><b>output</b>: </li>
 </ol><br>
+
+```
+Example
+input:
+output:
+chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240	shared	chr10;26709870;26710166;AluSx3;SINE;+;Alu	chr10;26713011;26713314;AluSc8;SINE;+;Alu	TEM_SAME;Alu
+```
