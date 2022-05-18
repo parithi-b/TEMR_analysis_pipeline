@@ -11,12 +11,12 @@ There are three major steps involved in identifying TEMRs from SV calls.
   <li>Merge SVs from multiple callers</li>
   <ol style="list-style-type: lower-alpha">
     <li>deletions, duplications, and inversions only</li>
-    <li>reciprocal overlap (80% &l;50kbp and 90% for &ge;50kbp)</li>
+    <li>reciprocal overlap (80% <50kbp and 90% for &ge;50kbp)</li>
     <li>parameters used with short-read SV calls:split-reads, paired-read, read-depth</li>
     <li>parameters used with long-read SV calls:read-support, read-depth</li>
   </ol>
   <li>Merge SVs from multiple individuals</li>
   <ol style="list-style-type: lower-alpha">
-    <li>reciprocal overlap (80% &l;50kbp and 90% for &ge;50kbp)</li>
+    <li>reciprocal overlap (80% <50kbp and 90% for &ge;50kbp)</li>
   <li>Identify SVs mediated by TEs</li>
 </ol>
