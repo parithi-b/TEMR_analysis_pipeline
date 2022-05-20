@@ -44,7 +44,7 @@ There are five major steps involved in identifying TEMRs from SV calls.
 
 <ol type="a">
   <li><b>script</b>: step1_temr_sv_vcf_to_tsv.py</li>
-  <li><b>input</b>: vcf_file, sample ID , filter/nofilter, short-read/long-read and tool name [manta/delly/lumpy/pbsv/svim/sniffle]</li>
+  <li><b>input</b>: vcf_file, ucsc_tracks, sample ID, tool name [manta/delly/lumpy/pbsv/svim/sniffle], sv size range</li>
   <li><b>output</b>: tsv files containing SVs calls in the following format</li>
     <ul style="list-style-type: lower-alpha">
       <li>short-read : [CHR, POS, END, SVTYPE, SAMPLEID, CALLER, PR, SR, DHBFC and DHFFC]</li>
@@ -55,7 +55,9 @@ There are five major steps involved in identifying TEMRs from SV calls.
 ```
 Example 
 input:
-python scripts/step1_temr_sv_vcf_to_tsv.py vcf_files/short-read/NA19240_manta_duphold.vcf NA19240 filter short-read manta
+python scripts/step1_temr_sv_vcf_to_tsv.py vcf_files/short-read/NA19240_manta_duphold.vcf UCSC_tracks/hg38_gaps_centromeres.tsv UCSC_tracks/hg38_simpleRepeats_collapsed.tsv NA19240 manta 50 50000
+50 --> shortest sv size
+50000 --> longest sv size
 
 output: 
 filename: vcf_files/NA19240_manta_duphold_sv_filtered.tsv
