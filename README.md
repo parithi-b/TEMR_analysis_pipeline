@@ -104,7 +104,7 @@ few example combination of parameters for filtering
 [0 0 True] --> only RD filter
 [0 0 False] --> default (no filter)
 output: 
-filename: vcf_files/short_read/Ensemble/NA19240/NA19240_10_5_RD_merged_sorted_under50k.bed
+filename: vcf_files/short_read/Ensemble/NA19240/NA19240_10_5_RD_merged_sorted.tsv
 (sample SV from the output file)
 chr10	26710086	26713224	DEL	NA19240	manta;delly;lumpy
 
