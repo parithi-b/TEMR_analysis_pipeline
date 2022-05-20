@@ -40,7 +40,7 @@ There are five major steps involved in identifying TEMRs from SV calls.
 
 ### STEP 1: Extract SV data 
 
-###### In this step we filter SVs overlapping simple repeats (50% overlap) and SVs near gaps and centromeres (<500bp).
+###### In this step we filter SVs overlapping simple repeats (50% overlap) and SVs near gaps and centromeres (<500bp). Deletions, Duplications, and Inversions are only considered.
 
 <ol type="a">
   <li><b>script</b>: step1_temr_sv_vcf_to_tsv.py</li>
@@ -82,7 +82,7 @@ chr10	26710161	26713284	DEL	NA19240	sniffles	29	0	0
 
 <ol>
   <li><b>script</b>: step2_temr_filter_merge_sv_multiple_callers.py</li>
-  <li><b>input</b>: three tsv files, corresponding caller names(in order on the files mentioned), parameters (PR,SR,RD or RS,RD), and output folder</li>
+  <li><b>input</b>: three tsv files, corresponding caller names(in order on the files mentioned), sample id, short-read/long-read, parameters (PR,SR,RD or RS,RD), and output folder</li>
   <li><b>output</b>: tsv file containing merged SV calls </li>
       <ul style="list-style-type: lower-alpha">
       <li>[CHR, POS, END, SVTYPE, SAMPLEID, CALLERS]</li>
@@ -92,7 +92,7 @@ chr10	26710161	26713284	DEL	NA19240	sniffles	29	0	0
 ```
 Example 
 input:
-python step2_temr_merge_sv_multiple_callers.py vcf_files/NA19240_manta_duphold.vcf vcf_files/NA19240_delly_duphold.vcf vcf_files/NA19240_lumpy_duphold.vcf NA19240 10 5 True vcf_files/short_read/Ensemble/
+python scripts/step2_temr_filter_merge_sv_multiple_callers.py vcf_files/short-read/NA19240_manta_duphold_sv_filtered.tsv vcf_files/short-read/NA19240_delly_duphold_sv_filtered.tsv vcf_files/short-read/NA19240_lumpy_duphold_sv_filtered.tsv manta delly lumpy NA19240 short-read 10 5 True vcf_files/short-read
 
 If an SV fails to reach the required support it is filtered out before merging
 10 -> minimum number of paired-read support needed
