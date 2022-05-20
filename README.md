@@ -55,7 +55,7 @@ There are five major steps involved in identifying TEMRs from SV calls.
 ```
 Example 
 input:
-python step1_temr_sv_vcf_to_tsv.py vcf_files/HG00733_manta_duphold.vcf HG00733 filter short-read manta
+python scripts/step1_temr_sv_vcf_to_tsv.py vcf_files/short-read/NA19240_manta_duphold.vcf NA19240 filter short-read manta
 
 output: 
 filename: vcf_files/NA19240_manta_duphold_sv_filtered.tsv
