@@ -152,7 +152,7 @@ chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240
 
 ```
 Example
-input: python step3_temr_merge_technology.py vcf_files/short_read/All_samples_merged.tsv vcf_files/long_read/All_samples_merged.tsv vcf_files
+input: python step4_temr_merge_technology.py vcf_files/short_read/All_samples_merged.tsv vcf_files/long_read/All_samples_merged.tsv vcf_files
 output:
 filename: vcf_files/All_samples_short_long_merged.tsv
 chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240 shared
