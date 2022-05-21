@@ -173,8 +173,9 @@ shared -> identified by both long-read and short-read callers
 ```
 Example
 input:
-  python vcf_files/All_samples_short_long_merged.tsv UCSC_track/hg38_repeatMasker.tsv
+  python scripts/step5_temr_identify_te_at_junction.py vcf_files/All_samples_shortRead_longRead_merged.tsv UCSC_trackshg38_repeatMasker_TEs.tsv
+  
 output:
-  filename: vcf_files All_samples_short_long_merged_TEMR.stv
+  filename: vcf_files All_samples_shortRead_longRead_merged_TEMR.stv
 chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240	shared	chr10;26709870;26710166;AluSx3;SINE;+;Alu	chr10;26713011;26713314;AluSc8;SINE;+;Alu	TEMR_SAME;Alu
 ```
