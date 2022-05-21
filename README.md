@@ -178,4 +178,8 @@ input:
 output:
   filename: vcf_files All_samples_shortRead_longRead_merged_TEMR.stv
 chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240	shared	chr10;26709870;26710166;AluSx3;SINE;+;Alu	chr10;26713011;26713314;AluSc8;SINE;+;Alu	TEMR_SAME;Alu
+  
+chr10;26709870;26710166;AluSx3;SINE;+;Alu --> TE present at the 3′ junction
+chr10;26713011;26713314;AluSc8;SINE;+;Alu --> TE present at the 5′ junction
+TEMR_SAME;Alu --> flag indicating this event is medaited by _Alu_ elements in the same orientation
 ```
