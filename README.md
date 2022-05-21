@@ -125,11 +125,10 @@ chr10	26710086	26713224	DEL	NA19240	pbsv;sniffles;svim
 ```
 Example
 input: 
-python step3_temr_merge_individuals.py vcf_files/short_read/Ensemble/HG00514/HG00514_10_5_RD_merged_sorted_under50k.bed vcf_files/short_read/Ensemble/HG00733/HG00733_10_5_RD_merged_sorted_under50k.bed vcf_files/short_read/Ensemble/NA19240/NA19240_10_5_RD_merged_sorted_under50k.bed
-vcf_files/short_read/
+python scripts/step3_temr_merge_individuals.py vcf_files/short-read/Ensemble/NA19240/NA19240_10_5_RD_merged_sorted.tsv vcf_files/short-read/Ensemble/HG00733/HG00733_10_5_RD_merged_sorted.tsv vcf_files/short-read/Ensemble/HG00514/HG00514_10_5_RD_merged_sorted.tsv vcf_files/short-read/
 
 output:
-filename: vcf_files/short_read/All_samples_merged.tsv
+filename: vcf_files/short_read/All_samples_10_5_RD_merged.tsv
 (sample SV from the output file)
 chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240
 HG00514: --> lead sample containing this SV
@@ -152,9 +151,10 @@ chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240
 
 ```
 Example
-input: python step4_temr_merge_technology.py vcf_files/short_read/All_samples_merged.tsv vcf_files/long_read/All_samples_merged.tsv vcf_files
+input: python scripts/step4_temr_merge_technology.py vcf_files/short-read/All_samples_10_5_RD_merged.tsv vcf_files/long-read/All_samples_default_RD_merged.tsv vcf_files/
+  
 output:
-filename: vcf_files/All_samples_short_long_merged.tsv
+filename: vcf_files/All_samples_shortRead_longRead_merged.tsv
 chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240 shared
 shared -> identified by both long-read and short-read callers
 ```
