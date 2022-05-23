@@ -1,4 +1,4 @@
-This repository includes scripts to integrate short-read (Illumina) and long-read (PacBio) SV calls used in TEMR analysis.
+This repository includes scripts to integrate short-read (Illumina) and long-read (PacBio) SV calls and identify TEMRs and analyze them.
 
 # TEMR analysis pipeline
 
