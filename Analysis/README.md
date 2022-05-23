@@ -1,8 +1,8 @@
-Final callset used for data analysis 
+# Final callset used for data analysis 
 
-TEMR callset was analyzied primarly using pandas and scipy(statistics) packages in python (via conda)
+TEMRs were analyzied primarly using pandas and scipy(statistics) packages in python (via conda)
 
-######Further information on all packages used in this manuscript can be found in the Supplementary Table S8
+###### Further information on all packages used in this manuscript can be found in the Supplementary Table S8
 
 TE sequence were obtained using <b><i>bedtools getfasta</i></b>
 Percent similarity was calculated <a href="https://github.com/mbreese/swalign">swalign</a>
