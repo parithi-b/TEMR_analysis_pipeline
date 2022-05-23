@@ -7,7 +7,7 @@ TEMRs were analyzied primarly using pandas and scipy(statistics) packages in pyt
 <ul>
 <li>TE sequences were obtained using <b><i>bedtools getfasta</i></b></li>
 <li>Percent similarity were calculated using <a href="https://github.com/mbreese/swalign">swalign</a></li>
-<li>Microhomology information were obtained from manta and pav(HGSVC2) files</li>
+<li>Microhomology information were obtained from manta and pav(HGSVC2)</li>
 <li>HGSVC vcfs were obtained from <a href="https://www.nature.com/articles/s41467-018-08148-z">Chaisson et al, 2019</a> and <a href="https://www.science.org/doi/10.1126/science.abf7117"><i>Ebert et al, 2021</a></li>
 </ul>
 
