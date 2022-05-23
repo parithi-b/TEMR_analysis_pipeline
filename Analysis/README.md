@@ -5,9 +5,9 @@ TEMRs were analyzied primarly using pandas and scipy(statistics) packages in pyt
 ###### Further information on all packages used in this manuscript can be found in the Supplementary Table S8.
 
 TE sequence were obtained using <b><i>bedtools getfasta</i></b>
-Percent similarity was calculated <a href="https://github.com/mbreese/swalign">swalign</a>
-Microhomology information were obtained from manta and pav
-HGSVC vcf were obtained from <a href="https://github.com/mbreese/swalign">swalign</a> and <a href="https://github.com/mbreese/swalign"><i>Ebert et al<\i></a>
+Percent similarity was calculated <a href="https://github.com/mbreese/swalign">swalign</a>.
+Microhomology information were obtained from manta and pav.
+HGSVC vcf were obtained from <a href="https://github.com/mbreese/swalign">swalign</a> and <a href="https://github.com/mbreese/swalign"><i>Ebert et al</a>
 
 ```
 Detail explanation on what each column represent 
