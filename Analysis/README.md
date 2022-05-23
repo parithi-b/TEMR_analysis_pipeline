@@ -5,7 +5,7 @@ TEMR callset was analyzied primarly using pandas and scipy(statistics) packages 
 ######Further information on all packages used in this manuscript can be found in the Supplementary Table S8
 
 TE sequence were obtained using <b><i>bedtools getfasta</i></b>
-Percent similarity was calculated 
+Percent similarity was calculated <a href="https://github.com/mbreese/swalign">swalign</a>
 
 ```
 Detail explanation on what each column represent 
