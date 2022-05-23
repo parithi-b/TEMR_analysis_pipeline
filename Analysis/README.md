@@ -2,13 +2,16 @@
 
 TEMRs were analyzied primarly using pandas and scipy(statistics) packages in python (via conda)
 
-###### Further information on all packages used in this manuscript can be found in the Supplementary Table S8
+###### Further information on all packages used in this manuscript can be found in the Supplementary Table S8.
 
 TE sequence were obtained using <b><i>bedtools getfasta</i></b>
 Percent similarity was calculated <a href="https://github.com/mbreese/swalign">swalign</a>
+Microhomology information were obtained from manta and pav
+HGSVC vcf were obtained from <a href="https://github.com/mbreese/swalign">swalign</a> and <a href="https://github.com/mbreese/swalign"><i>Ebert et al<\i></a>
 
 ```
 Detail explanation on what each column represent 
+
 chr11	120202706	120204025	DEL	NA19240:NA19240	shared	chr11;120202685;120202983;AluSg;SINE;+;Alu	chr11;120202685;120202983;AluSg;SINE;+;Alu	TEMR_SAME;Alu	GGCCGGGCATGGTGGCTCACACCTGTAATCCCAGCACTTTGGGAGGCTGAGGCGGGTGGATCACAAGGTCAGGAGTTTGAGACCAGCCTGGCCAACATGGTGAAACCCCGTCTCTACTAAAAATACAAAAAATAGCTGGGCATGGTGGCAGGTGCCTATAATCCCAGCTACTCAGGAGGCTGAGGCAGGAGAATTGCTTGAATCCAGAAGGCAGAGGTTGCAGTGAGCTGAGATCGTGCCACTGCACTCCAGCCTGGGCGACAGAGCAAGACTCTGTCTCGAAAAAACAAAAAAAGAA	GGCCGGGCGCGGTGACTCATGCCTGTAATCCCAGCACTTTGGGAGGCCAAGGCGGGTGGATCACGAGGTCAGGAGATCGAGACCATCCTGGCTAACACGGTGAAATCCCGTCTGTACTAAAAATCCAAAAAATTAGCCGGGCGTGGTGGCGGGCGCCTGTAGTCCCAGCTACTCGGGAGGCTGAGGCAGGAGAATGGCATGAACCCGGGAGGCAGAGCTTGCAGTGAGCTGAGATCGCGCCCCTGCACTCCAGCCTGGGCGACAGAGCGAGACTCCATCTCAAAAAAAAAAAAAAAAAAAGTAATAAA	87.291	26	CCTGTAATCCCAGCACTTTGGGAGGC	HR
 
 chr11 --> CHR
