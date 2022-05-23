@@ -146,7 +146,7 @@ chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240
  <li><b>input</b>: Ensemble SV callset from short-read pipleline and long-read pipeline, and output folder </li>
   <li><b>output</b>: tsv file containing merged SV calls </li>
       <ul style="list-style-type: lower-alpha">
-      <li>[CHR, POS, END, SVTYPE, INDIVIDUALS, SHARED]</li>
+      <li>[CHR, POS, END, SVTYPE, INDIVIDUALS, TECHNOLOGY]</li>
 </ol><br>
 
 ```
@@ -161,13 +161,15 @@ shared -> identified by both long-read and short-read callers
 
 ### STEP 5: Identify TEMRs
 ###### In this step we identify SVs with breakpoints present within two distinct TEs. There is an option to assign a window size while searching for TE, if breakpoint accuracy was a concern.
+  
+TE information are provided in the UCSC_tracks folder or can directly be downloaded from UCSC Table Browser ( group: Repeats and track: RepeatMasker)
 
 <ol>
   <li><b>script</b>: step5_temr_identify_te_at_junction.py</li>
   <li><b>input</b>: Final merged file, repeatMasker file</li>
   <li><b>output</b>: tsv file containing TEs present at the breakpoint junction of SV calls </li>
       <ul style="list-style-type: lower-alpha">
-      <li>[CHR, POS, END, SVTYPE, INDIVIDUALS, SHARED, 3_TE, 5_TE, TEMR_FLAG]</li>
+      <li>[CHR, POS, END, SVTYPE, INDIVIDUALS, TECHNOLOGY, 3_TE, 5_TE, TEMR_FLAG]</li>
 </ol><br>
 
 ```
