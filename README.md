@@ -36,6 +36,21 @@ There are five major steps involved in identifying TEMRs from SV calls.
 
 ###### please use the full path of the files and have all the required scripts & vcfs in a single folder for ease of use. Python and bedtools were run using conda environment. 
 
+```
+Initial process
+##download all the files from this page and unzip them
+
+cd TEMR_analysis_pipeline-main
+gunzip UCSC_tracks/*gz
+gunzip vcf_files/*/*gz
+cat UCSC_tracks/*repeat* | sort -k1,1 -k2,2n > UCSC_tracks/hg38_repeatMasker_TEs.tsv
+
+##create and activate a conda environment with python and bedtools
+conda create --name temr_env python=3.9 bedtools
+conda activate temr_env
+
+## now you are set to run the below scripts
+```
 ---
 
 ### STEP 1: Extract SV data 
@@ -181,7 +196,7 @@ TE information are provided in the UCSC_tracks folder or can directly be downloa
 ```
 Example
 input:
-  python scripts/step5_temr_identify_te_at_junction.py vcf_files/All_samples_shortRead_longRead_merged.tsv UCSC_trackshg38_repeatMasker_TEs.tsv
+  python scripts/step5_temr_identify_te_at_junction.py vcf_files/All_samples_shortRead_longRead_merged.tsv UCSC_tracks/hg38_repeatMasker_TEs.tsv
   
 output:
   filename: vcf_files All_samples_shortRead_longRead_merged_TEMR.stv
