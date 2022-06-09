@@ -38,7 +38,7 @@ There are five major steps involved in identifying TEMRs from SV calls.
 
 ```
 Initial process
-##download all the files from this page and unzip them
+##download/clone all the files from this page and unzip them
 
 cd TEMR_analysis_pipeline-main
 gunzip UCSC_tracks/*gz
