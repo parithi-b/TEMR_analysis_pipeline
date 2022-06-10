@@ -34,7 +34,7 @@ There are five major steps involved in identifying TEMRs from SV calls.
   </ol>
 </ol>
 
-###### please use the full path of the files and have all the required scripts & vcfs in a single folder for ease of use. Python and bedtools were run using conda environment. 
+###### please use the full path of the files or have all the required scripts & vcfs in a single folder for ease of use. Python and bedtools were run using conda environment. 
 
 ---
 ### STEP 0: Initialize & set up a working environment 
