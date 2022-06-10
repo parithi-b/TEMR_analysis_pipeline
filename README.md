@@ -53,7 +53,6 @@ conda activate temr_env
 
 ## now you are set to run the below scripts
 ```
----
 
 ### STEP 1: Extract SV data 
 
