@@ -40,14 +40,14 @@ There are five major steps involved in identifying TEMRs from SV calls.
 ### Initialization & setting up a working environment 
 
 ```
-##download/clone all the files from this page and unzip them
+## download/clone all the files from this page and unzip them
 
 cd TEMR_analysis_pipeline-main
 gunzip UCSC_tracks/*gz
 gunzip vcf_files/*/*gz
 cat UCSC_tracks/*repeat* | sort -k1,1 -k2,2n > UCSC_tracks/hg38_repeatMasker_TEs.tsv
 
-##create and activate a conda environment with python and bedtools
+## create and activate a conda environment with python and bedtools
 conda create --name temr_env python=3.9 bedtools
 conda activate temr_env
 
