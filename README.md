@@ -37,14 +37,14 @@ There are five major steps involved in identifying TEMRs from SV calls.
 ###### please use the full path of the files or have all the required scripts & vcfs in a single folder for ease of use. Python and bedtools were run using conda environment. 
 
 ---
-In this use case we are using data from 6 callers per individual and three individuals in total.
+```In this use case we are using data from 6 callers per individual and three individuals in total.
 Individuals : HG00514, HG00733, and NA19240
 technology : short-read and long-read
 6 callers : short-read (manta, delly, and lumpy) and long-read (pbsv, sniffles, and svim)
 step 1 : 3 files per sample per technology (i/p = 18 files and o/p =  18 files)
 step 2 : 3 files per sample per technology (i/p = 18 files [3 x 3 x 2] and o/p =  6 files [1 x 3 x 2])
 step 3 : 3 files per technology (i/p = 6 files [3 x 2] and o/p =  2 files [1 x 2])
-step 4 : 1 file per technology (i/p = 2 files [1 x 2] and o/p =  1 file )
+step 4 : 1 file per technology (i/p = 2 files [1 x 2] and o/p =  1 file )```
 
 ---
 ### STEP 0: Initialize & set up a working environment 
