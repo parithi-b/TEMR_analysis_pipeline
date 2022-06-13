@@ -110,35 +110,6 @@ def overlapping_individuals(input_bed_file):
     print("NO of KEYs in Dictionary  :  ", len(combine_dict))
 
 
-def make_dict(output_bedtools, key_col_count):
-
-    sv_dict = dict()
-
-    for sv in output_bedtools.decode().split("\n"):
-
-        y = sv.split()
-
-        if len(y) < 2:  # ignoring empty lines
-            continue
-
-        ### Key
-        key_sv_type = y[3]
-        key_temp = "__".join(k for k in y[:key_col_count])
-
-        if key_temp not in sv_dict:
-            sv_dict[key_temp] = []
-
-        ### Value
-        value_sv_type = y[3 + key_col_count]
-        value_temp = "__".join(k for k in y[key_col_count:])
-
-        if value_sv_type == key_sv_type:  # same SV type
-            if value_temp not in sv_dict[key_temp] and key_temp != value_temp:
-                sv_dict[key_temp].append(value_temp)
-
-    return sv_dict
-
-
 def main():
 
     #####################################################################
