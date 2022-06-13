@@ -38,13 +38,19 @@ There are five major steps involved in identifying TEMRs from SV calls.
 
 ---
 ```In this use case we are using data from 6 callers per individual and three individuals in total.
-Individuals : HG00514, HG00733, and NA19240
+samples : HG00514, HG00733, and NA19240
 technology : short-read and long-read
 6 callers : short-read (manta, delly, and lumpy) and long-read (pbsv, sniffles, and svim)
-step 1 : 3 files per sample per technology (i/p = 18 files and o/p =  18 files)
-step 2 : 3 files per sample per technology (i/p = 18 files [3 x 3 x 2] and o/p =  6 files [1 x 3 x 2])
-step 3 : 3 files per technology (i/p = 6 files [3 x 2] and o/p =  2 files [1 x 2])
-step 4 : 1 file per technology (i/p = 2 files [1 x 2] and o/p =  1 file )```
+
+step 1 : 3 files per sample per technology 
+  (i/p = 18 files and o/p =  18 files)
+step 2 : 3 files per sample per technology 
+  (i/p = 18 files [3 callers x 3 samples x 2 technologies] and o/p =  6 files [1 merge x 3 samples x 2 technologies])
+step 3 : 3 files per technology 
+  (i/p = 6 files [3 merge samples x 2 technologies] and o/p =  2 files [1 merge x 2 technologies])
+step 4 : 1 file per technology 
+  (i/p = 2 files [1 merge x 2 technologies] and o/p =  1 file )
+```
 
 ---
 ### STEP 0: Initialize & set up a working environment 
@@ -169,10 +175,9 @@ HG00514;HG00733;NA19240 --> all samples contianing this SV
 Same SV in <long-read pipeline>
 chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240
 ```
-  
-### STEP 4: Merge SVs from multiple technology 
-###### In this step we merge SV calls from both short-read ensemble pipeline and long-read ensemble pipeline. Ensemble pipeline --> multiple caller and multiple individual merge 
 
+### STEP 4: Merge SVs from multiple technology
+###### In this step we merge SV calls from both short-read ensemble pipeline and long-read ensemble pipeline. Ensemble pipeline --> multiple caller and multiple individual merge
 <ol>
   <li><b>script</b>: step4_temr_merge_technology.py</li>
  <li><b>input</b>: Ensemble SV callset from short-read pipleline and long-read pipeline, and output folder </li>
