@@ -62,7 +62,7 @@ python scripts/step3_temr_merge_individuals.py vcf_files/short-read/Ensemble/NA1
 python scripts/step3_temr_merge_individuals.py vcf_files/long-read/Ensemble/NA19240/NA19240_default_RD_merged_sorted.tsv vcf_files/long-read/Ensemble/HG00733/HG00733_default_RD_merged_sorted.tsv vcf_files/long-read/Ensemble/HG00514/HG00514_default_RD_merged_sorted.tsv vcf_files/long-read/
 ```
 ---
-### merge two techonologies 
+### merge two technologies 
 ```
 python scripts/step4_temr_merge_technology.py vcf_files/short-read/All_samples_10_5_RD_merged.tsv vcf_files/long-read/All_samples_default_RD_merged.tsv vcf_files/
 ```
