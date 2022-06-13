@@ -164,7 +164,7 @@ chr10	26710086	26713224	DEL	HG00514:HG00514;HG00733;NA19240
 ###### In this step we merge SV calls from both short-read ensemble pipeline and long-read ensemble pipeline. Ensemble pipeline --> multiple caler and multiple individual merge 
 
 <ol>
-  <li><b>script</b>: step3_temr_merge_technology.py</li>
+  <li><b>script</b>: step4_temr_merge_technology.py</li>
  <li><b>input</b>: Ensemble SV callset from short-read pipleline and long-read pipeline, and output folder </li>
   <li><b>output</b>: tsv file containing merged SV calls </li>
       <ul style="list-style-type: lower-alpha">
