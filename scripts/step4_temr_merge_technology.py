@@ -35,6 +35,12 @@ def make_dict(output_bedtools, key_col_count):
 def illumina_and_pacbio_merge(illumina_bed, pacbio_bed, output_file):
 
     final_list = list()
+    col_count = 0
+    
+    for i in open(illumina_bed,"r"):
+        if "chr" in i:
+            col_count = len(i.split("\t"))
+        break
 
     bedtools_unique = subprocess.Popen(
         ['bedtools', 'intersect', '-f', '0.798', '-r', '-a', illumina_bed, '-b', pacbio_bed, '-loj', ],
@@ -42,7 +48,7 @@ def illumina_and_pacbio_merge(illumina_bed, pacbio_bed, output_file):
 
     out, err = bedtools_unique.communicate()
 
-    illumina_dict = make_dict(out,6)
+    illumina_dict = make_dict(out, col_count)
 
     print(len(illumina_dict))
     count = 0
@@ -64,7 +70,7 @@ def illumina_and_pacbio_merge(illumina_bed, pacbio_bed, output_file):
 
     out, err = bedtools_unique.communicate()
 
-    pacbio_dict = make_dict(out,6)
+    pacbio_dict = make_dict(out, col_count)
 
     print(len(pacbio_dict))
     count = 0
