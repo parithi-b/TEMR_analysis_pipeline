@@ -103,7 +103,7 @@ def overlapping_individuals(input_bed_file):
 
             y[4] = y[4] + ":" + temp
 
-        write_output.write("\t".join(str(k) for k in y) + "\n")
+        write_output.write("\t".join(str(k) for k in y[:-1]) + "\n")
         # print()
 
     write_output.close()
