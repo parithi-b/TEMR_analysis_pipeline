@@ -499,7 +499,7 @@ def pbsv_vcf_to_bed(input_bed_file, output_bed_file, sample_id, lower_sv, upper_
 
 def svim_vcf_to_bed(input_bed_file, output_bed_file, sample_id, lower_sv, upper_sv):
 
-    print("\nConverting VCF to BED  -  svim ")
+    print("\nConverting VCF to TSV  -  svim ")
 
     bed_write = open(output_bed_file, 'w')
 
