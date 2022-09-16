@@ -2,7 +2,7 @@
 
 TEMRs were analyzied primarly using pandas and scipy(statistics) packages in python (via conda)
 
-###### Further information on all packages used in this manuscript can be found in the Supplementary Table S8.
+###### Further information on all packages used in this manuscript can be found in the Supplementary Table S9.
 
 <ul>
 <li>TE sequences were obtained using <b><i>bedtools getfasta</i></b></li>
